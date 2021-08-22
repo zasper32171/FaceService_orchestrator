@@ -1,0 +1,3 @@
+[submodule "FaceServer"]
+	path = FaceServer
+	url = https://github.com/zasper32171/FaceServer.git
