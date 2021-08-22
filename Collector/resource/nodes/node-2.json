@@ -1,0 +1,7 @@
+{
+    "node_id": 2,
+    "node_name": "cloud_server",
+    "node_type": "server",
+    "node_addr": "33.201.45.220",
+    "node_port": 9000
+}

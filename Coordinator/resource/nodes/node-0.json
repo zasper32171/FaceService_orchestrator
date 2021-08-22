@@ -1,0 +1,7 @@
+{
+    "node_id": 0,
+    "node_name": "client",
+    "node_type": "client",
+    "node_addr": "140.112.20.184",
+    "node_port": 9000
+}

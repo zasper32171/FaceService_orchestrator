@@ -1,0 +1,158 @@
+{
+    "service_id": 1,
+    "service_name": "offload_detect",
+    "template": [
+        {
+            "node_id": 0,
+            "blueprint": {
+                "handlers": [
+                    {
+                        "handler_id": 0,
+                        "handler_name": "capture",
+                        "handler_type": 2,
+                        "params": {
+                            "source": 0,
+                            "fps": 20,
+                            "width": 640,
+                            "height": 480
+                        }
+                    },
+                    {
+                        "handler_id": 1,
+                        "handler_name": "encode",
+                        "handler_type": 5,
+                        "params": {
+                            "quality": 80
+                        }
+                    },
+                    {
+                        "handler_id": 2,
+                        "handler_name": "tx",
+                        "handler_type": 0,
+                        "params": {
+                            "addr": "140.112.20.181",
+                            "port": 9002,
+                            "protocol": "udp"
+                        }
+                    },
+                    {
+                        "handler_id": 7,
+                        "handler_name": "rx",
+                        "handler_type": 1,
+                        "params": {
+                            "port": 9002,
+                            "protocol": "udp"
+                        }
+                    },
+                    {
+                        "handler_id": 8,
+                        "handler_name": "draw",
+                        "handler_type": 17,
+                        "params": {}
+                    },
+                    {
+                        "handler_id": 9,
+                        "handler_name": "render",
+                        "handler_type": 3,
+                        "params": {}
+                    }
+                    
+                ],
+                "links": [
+                    {
+                        "source_handler": 0,
+                        "source_output": 0,
+                        "target_handler": 1,
+                        "target_input": 0
+                    },
+                    {
+                        "source_handler": 1,
+                        "source_output": 0,
+                        "target_handler": 2,
+                        "target_input": 0
+                    },
+                    {
+                        "source_handler": 0,
+                        "source_output": 0,
+                        "target_handler": 8,
+                        "target_input": 0
+                    },
+                    {
+                        "source_handler": 7,
+                        "source_output": 0,
+                        "target_handler": 8,
+                        "target_input": 1
+                    },
+                    {
+                        "source_handler": 8,
+                        "source_output": 0,
+                        "target_handler": 9,
+                        "target_input": 0
+                    }
+                ]
+            }
+        },
+        {
+            "node_id": 1,
+            "blueprint": {
+                "handlers": [
+                    {
+                        "handler_id": 3,
+                        "handler_name": "rx",
+                        "handler_type": 1,
+                        "params": {
+                            "port": 9002,
+                            "protocol": "udp"
+                        }
+                    },
+                    {
+                        "handler_id": 4,
+                        "handler_name": "decode",
+                        "handler_type": 6,
+                        "params": {}
+                    },
+                    {
+                        "handler_id": 5,
+                        "handler_name": "detect_object",
+                        "handler_type": 7,
+                        "params": {
+                            "config": "yolov3-512.cfg",
+                            "weights": "yolov3.weights",
+                            "targets": ["person"]
+                        }
+                    },
+                    {
+                        "handler_id": 6,
+                        "handler_name": "tx",
+                        "handler_type": 0,
+                        "params": {
+                            "addr": "140.112.20.184",
+                            "port": 9002,
+                            "protocol": "udp"
+                        }
+                    }
+                ],
+                "links": [
+                    {
+                        "source_handler": 3,
+                        "source_output": 0,
+                        "target_handler": 4,
+                        "target_input": 0
+                    },
+                    {
+                        "source_handler": 4,
+                        "source_output": 0,
+                        "target_handler": 5,
+                        "target_input": 0
+                    },
+                    {
+                        "source_handler": 5,
+                        "source_output": 0,
+                        "target_handler": 6,
+                        "target_input": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

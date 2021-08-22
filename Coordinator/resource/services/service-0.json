@@ -1,0 +1,38 @@
+{
+    "service_id": 0,
+    "service_name": "local_render",
+    "template": [
+        {
+            "node_id": 0,
+            "blueprint": {
+                "handlers": [
+                    {
+                        "handler_id": 0,
+                        "handler_name": "capture",
+                        "handler_type": 2,
+                        "params": {
+                            "source": 0,
+                            "fps": 30,
+                            "width": 640,
+                            "height": 480
+                        }
+                    },
+                    {
+                        "handler_id": 1,
+                        "handler_name": "render",
+                        "handler_type": 3,
+                        "params": {}
+                    }
+                ],
+                "links": [
+                    {
+                        "source_handler": 0,
+                        "source_output": 0,
+                        "target_handler": 1,
+                        "target_input": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

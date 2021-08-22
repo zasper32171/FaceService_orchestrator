@@ -1,0 +1,7 @@
+{
+    "node_id": 1,
+    "node_name": "edge_server",
+    "node_type": "server",
+    "node_addr": "10.21.20.10",
+    "node_port": 9000
+}
