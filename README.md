@@ -8,7 +8,7 @@ Data transmition between nodes is with HTTP.
 
 ## System Architecture
 
-<img src="https://github.com/zasper32171/Orchestrator/blob/master/imgs/architecture.png" alt="system architecture" width=750/>
+<img src="imgs/architecture.png" alt="system architecture" width=750/>
 
 ## Database
 
