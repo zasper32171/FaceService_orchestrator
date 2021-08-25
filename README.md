@@ -1,4 +1,4 @@
-# FaceService Orchestrator
+# FaceService
 
 A centralized architecture to enable dynamic resource orchestration between computing nodes.
 
